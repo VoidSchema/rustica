@@ -5,8 +5,6 @@ wallet vaults, documents and host details, zips them in memory and delivers the
 archive to a Discord webhook. Single unsigned `.exe`, no runtime dependencies,
 no console window.
 
-This is the Rust replacement for `redteam/agent.py`.
-
 > **Authorized use only.** Use this against hosts you own or have explicit
 > written permission to test. Running it against a third party is illegal in
 > most jurisdictions and is not what this kit is for.
