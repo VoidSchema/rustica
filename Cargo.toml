@@ -1,0 +1,63 @@
+[package]
+name = "winagent"
+version = "1.0.0"
+edition = "2021"
+build = "build.rs"
+
+[[bin]]
+name = "winagent"
+path = "src/main.rs"
+
+[features]
+default = []
+console = []
+
+[dependencies]
+aes = "0.8"
+aes-gcm = "0.10"
+cbc = "0.1"
+des = "0.8"
+sha1 = "0.10"
+sha2 = "0.10"
+pbkdf2 = "0.12"
+base64 = "0.22"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+walkdir = "2"
+rusqlite = { version = "0.32", features = ["bundled"] }
+reqwest = { version = "0.12", features = ["blocking", "multipart", "json"] }
+regex = "1"
+png = "0.17"
+winreg = "0.52"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = [
+  "winnt",
+  "winbase",
+  "sysinfoapi",
+  "fileapi",
+  "handleapi",
+  "libloaderapi",
+  "processthreadsapi",
+  "securitybaseapi",
+  "debugapi",
+  "errhandlingapi",
+  "synchapi",
+  "timezoneapi",
+  "dpapi",
+  "wincrypt",
+  "tlhelp32",
+  "iphlpapi",
+  "winuser",
+  "wingdi",
+  "minwindef",
+  "windef",
+] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

