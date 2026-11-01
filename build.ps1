@@ -52,11 +52,11 @@ Push-Location $root
 try {
     if ($Console) {
         & $cargo build --features console
-        $exe = Join-Path $root "target\debug\winagent.exe"
+        $exe = Join-Path $root "target\debug\rustica.exe"
     }
     else {
         & $cargo build --release
-        $exe = Join-Path $root "target\release\winagent.exe"
+        $exe = Join-Path $root "target\release\rustica.exe"
     }
     if ($LASTEXITCODE -ne 0) { throw "cargo build failed" }
 
